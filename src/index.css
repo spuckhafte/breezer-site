@@ -24,10 +24,9 @@ a {
   height: 100vh;
   grid-template-areas: 
     "header header header"
-    "content content content"
-    "footer footer footer";
+    "content content content";
 
-  grid-template-rows: 17rem auto 3rem;
+  grid-template-rows: 17rem auto;
 }
 
 .app .header {
@@ -126,15 +125,73 @@ a {
 .app .content .about .answer .sell {
   color: var(--tertiary);
 }
+.app .content .about .answer .start {
+  color: var(--tertiary);
+}
+
+.app .content .npmi {
+  font-family: monospace;
+  width: fit-content;
+  padding: 10px;
+  padding-inline: 20px;
+  margin-top: 1rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.493);
+  font-size: 15px;
+}
+.app .content .npmi .npm {
+  color: yellow;
+}
+.app .content .npmi .i {
+  color: #5bc0de
+}
 
 .app .content .releases {
-  height: 100%;
+  height: 8rem;
+  margin-block: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  padding-inline: 0px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
-.app .footer {
-  grid-area: footer;
+.app .content .releases .folder {
+  height: 7rem;
+  width: 13rem;
+  margin-inline-end: 5px;
+  background-color: var(--lightPrimary);
+  border: 2px solid var(--lightPrimary);
 }
 
+.app .content .releases .folder:hover {
+  background-color: var(--primary);
+}
+
+.app .content .releases .folder .version {
+  height: 30%;
+  width: 60%;
+  border: 5px solid var(--secondary);
+  border-top: 0;
+  border-left: 0;
+  background-color: var(--primary);
+  line-height: 200%;
+  padding-inline-start: 5%;
+  margin-bottom: 5%
+}
+
+.app .content .releases .folder .details {
+  color: var(--secondary)
+}
 
 .shadow {
   text-shadow: 2px 1px 3px rgb(20, 20, 20);
@@ -164,14 +221,25 @@ a {
   font-family: 'Fjalla One', sans-serif;
 }
 
+.test1 {
+  background-color: rgba(255, 0, 0, 0.267);
+}
+.test2 {
+  background-color: rgba(255, 187, 0, 0.267);
+}
 
 
 
 @media (max-width: 700px) {
 
+  .app {
+    grid-template-rows: 15rem auto;
+  }
+
   .app .header .navbar {
     justify-content: space-between;
     padding: 0;
+    height: 6rem;
   }
 
   .app .header .navbar > * {
@@ -184,12 +252,22 @@ a {
   }
 
   .app .header .heading {
-    font-size: 47px;
+    font-size: 46px;
+    height: 50%;
+  }
+
+  .app .header .byline {
+    font-size: 12px;
+    margin-block: -1rem;
   }
 
   .app .content {
     margin-inline: 0.2rem;
     width: 90%;
+  }
+
+  .app .content .releases .folder:hover {
+    background-color: var(--lightPrimary);
   }
 
 
@@ -199,4 +277,30 @@ a {
   .pb {
     padding-bottom: 8px;
   }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary)
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary)
+}
+
+ul {
+  margin-block:  1px;
+  font-size: large;
 }

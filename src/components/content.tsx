@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Folder from "./util/folder";
+
+const api = 'https://api.github.com/repos/spuckhafte/breezer.js/tags';
+const emptyReleases:{ v:string, commit:string }[] = [];
 
 export default function Content() {
 
     const [_, setIsMob] = useState(false);
+    const [releases, setReleases] = useState(emptyReleases);
+
     window.onresize = () => {
         setIsMob(isMob());
     }
+
+    useEffect(() => {
+      fetch(api).then(_data => _data.json()).then(data => {
+        let push = [];
+        for (let release of data) {
+          push.push({
+            v: release.name,
+            commit: release.commit.sha
+          });
+        }
+        setReleases(push);
+      });
+    }, []);
 
     return (
         <div className="content">
@@ -19,7 +38,7 @@ export default function Content() {
           <div className="answer">
             <span className="fjla sell">
               DONT WORRY! BREEZER.JS LETS YOU CREATE DISCORD BOTS USING JAVASCRIPT WITH ELEGANT AND MINIMAL CODE
-              SO THAT YOU CAN FULLY FOCUS ON YOUR BOT.
+              SO THAT YOU CAN BE FOCUS ON YOUR BOT.
             </span><br/><br/>
             <div className="shadow glow feat pb">
               It works on file based command system which automatically find and runs the cmds used by the client.<br/>
@@ -30,10 +49,21 @@ export default function Content() {
             
             <span className="fjla sell">
               These features solve the problems mentioned above and make creating a bot a painless process.
-            </span> 
+            </span> <br/><br />
+
+            <span className="start black-ops">GET STARTED -</span>
           </div>
         </div>
-        <div className="releases"></div>
+        <div className="npmi">
+          <span className="npm">npm</span> <span className="i">install</span> breezer.js
+        </div>
+        <div className="releases">
+          {
+            releases.map((release, i) => {
+              return <Folder v={release.v} commit={release.commit} key={i} />
+            })
+          }
+        </div>
       </div>
     )
 }

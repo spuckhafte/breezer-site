@@ -45,7 +45,7 @@ export default function Header() {
         <div className="header black-ops">
             <nav className="navbar no-padding">
                 <img src="/logo.png" alt="logo" />
-                <span><a href="https://github.com/spuckhafte/breezer.js">GITHUB</a></span>
+                <span><a href="https://github.com/spuckhafte/breezer.js#breezer-js">DOCS</a></span>
                 <span><a href="https://npmjs.com/package/breezer.js">NPM</a></span>
             </nav>
             <span className="heading">BREEZER.JS</span>
