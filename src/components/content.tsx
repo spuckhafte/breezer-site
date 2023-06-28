@@ -38,13 +38,16 @@ export default function Content() {
           <div className="answer">
             <span className="fjla sell">
               DONT WORRY! BREEZER.JS LETS YOU CREATE DISCORD BOTS USING JAVASCRIPT WITH ELEGANT AND MINIMAL CODE
-              SO THAT YOU CAN BE FOCUS ON YOUR BOT.
+              SO YOU CAN FOCUS ON YOUR BOT.
             </span><br/><br/>
             <div className="shadow glow feat pb">
               It works on file based command system which automatically find and runs the cmds used by the client.<br/>
             </div>
+            <div className="shadow glow feat pb">
+              It provides you out-of-the-box features like State Management, Button Signals and many more coming soon.<br/>
+            </div>
             <div className="shadow glow feat">
-              It provides you out-of-the-box features like State Management, Button Signals and many more coming soon.<br/><br/>
+              Breezer.js is compatible with TypeScript and provides in-editor documentation, so you don't have to keep referring back to the original documentation repeatedly.<br/><br/>
             </div>
             
             <span className="fjla sell">
